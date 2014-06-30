@@ -1,0 +1,53 @@
+<!doctype html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Test Site</title>
+	<link rel="icon" href="/favicon.png" type="image/png">
+	<link href="/css/main.css" rel="stylesheet" />
+</head>
+<body>
+<div id="content">
+	<h1>Demo Page!</h1>
+	<h3>Request Echo Test:</h3>
+	<p>The server parses the request and echos the result back</p>
+	<form id="echoForm" method="POST" action="echo.hs">
+		<label for="firstname">Firstname:</label></br>
+		<input type="text" name="firstname" value="Haskell" class="text ui-widget-content ui-corner-all" /></br>
+		<label for="lastname">Lastname:</label></br>
+		<input type="text" name="lastname" value="Curry" class="text ui-widget-content ui-corner-all" /></br>
+		<label for="message">Message:</label></br>
+		<textarea rows="4" cols="50" name="message" class="text ui-widget-content ui-corner-all" />Test Message</textarea>
+		</br>
+		<input id="showEcho" type="submit" value="Show!" />
+	</form>
+	<p id="resultBox">Result: </p>
+	<div id="reqOutBox"></div>
+</content>
+<script src="//code.jquery.com/jquery-2.1.1.min.js"></script>
+<script>
+  $( "#showEcho" )
+      .click(function( event ) {
+        event.preventDefault();
+        $.ajax({
+        	type: "POST",
+        	url: "echo.hs",
+        	data: $('#echoForm').serialize(),
+        	success: function (data) {
+        		$('#reqOutBox').html(data);
+        	}
+        });
+        
+        $.ajax({
+        	type: "POST",
+        	url: "welcome.hs",
+        	data: $('#echoForm').serialize(),
+        	success: function (data) {
+        		$('#resultBox').html("Result: " + data);
+        	}
+        });
+   });
+</script>
+
+</body>
+</html>

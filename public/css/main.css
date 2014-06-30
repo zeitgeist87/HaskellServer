@@ -1,0 +1,88 @@
+html, body, h1, h2{
+    margin:0;
+    padding:0;
+}
+
+html{
+    overflow-y: scroll;
+}
+
+body {
+    font: 80% Helvetica, Arial, sans-serif;
+    /*background-image:url('images/paper5.png');*/
+    background: url('images/sideback.png');
+}
+
+a,a:active,a:hover,a:visited {
+    text-decoration: none;
+    font-weight: normal;
+    color: #305e70;
+    transition: all 0.4s ease-in-out;
+    -webkit-transition: all 0.4s ease-in-out;
+    -moz-transition: all 0.4s ease-in-out;
+}
+a:hover {
+    text-decoration: underline;
+}
+
+h1 {
+    font-size: 50px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    text-align: center;
+}
+
+
+
+
+#content {
+    margin: 30px auto;
+    background: white;
+    width: 80%;
+    /*min-height: 1200px;*/
+    min-width: 970px;
+    max-width: 1200px;
+    border-radius: 20px;
+    box-shadow: 0 0 10px 2px black;
+    /*box-shadow: 0 0 10px black;*/
+    padding: 20px;
+}
+/*forces the floating elements
+  inside of #content to stretch
+  #content
+*/
+#content:after {
+   content: " ";
+   display: block; 
+   height: 0; 
+   clear: both;
+}
+
+#reqOutBox {
+	height: 80px;
+	border: 1px gray solid;
+	margin-bottom: 10px;
+	overflow: auto;
+}
+
+
+input, textarea {
+    outline:none;
+    transition-property: border,box-shadow;
+    -webkit-transition-property: border,box-shadow;
+    -moz-transition-property: border,box-shadow;
+    transition-duration: 0.4s;
+    -webkit-transition-duration: 0.4s;
+    -moz-transition-duration: 0.4s;
+    transition-timing-function: ease-in-out;
+    -webkit-transition-timing-function: ease-in-out;
+    -moz-transition-timing-function: ease-in-out;
+    
+    padding-left: 5px;
+    border-radius:10px;
+    border:1px solid gray;
+}
+
+pre{
+	overflow: auto;	
+}
