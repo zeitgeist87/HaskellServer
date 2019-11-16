@@ -46,7 +46,7 @@ main = withSocketsDo $ do
     let addr = head addrs
     sock <- socket (addrFamily addr) Stream defaultProtocol
     setSocketOption sock ReuseAddr 1
-    bindSocket sock (addrAddress addr) 
+    bind sock (addrAddress addr) 
     listen sock 20
     mainLoop s sock
 

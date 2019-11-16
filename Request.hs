@@ -34,7 +34,7 @@ import System.Directory
 import System.FilePath
 import Control.Exception
 import Data.Time
-import System.Locale
+--import System.Locale
 import Data.Time.Clock.POSIX
 import Parser
 import Settings

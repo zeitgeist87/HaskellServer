@@ -17,7 +17,7 @@ cabal install network
 The server can be easily compiled with the following command:
 
 ```
-ghc Server.hs
+ghc -dynamic Server.hs
 ```
 
 ## Usage

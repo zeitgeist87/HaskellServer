@@ -36,7 +36,7 @@ import Data.Char
 import Data.Time
 import Data.Time.Clock.POSIX
 import Data.Maybe
-import System.Locale
+--import System.Locale
 
 
 data Method = GET | HEAD | POST | PUT | DELETE | TRACE
@@ -99,7 +99,7 @@ headerMap =
     parseConnection (f:_) = Just (HdrConnection (toLower f == 'k'))
     convDate = fromInteger . round . utcTimeToPOSIXSeconds
     parseDate t date = maybe Nothing (\d -> Just (t (convDate d))) (parseWebDate date)
-    parseWebDate date = parseTime defaultTimeLocale rfc822DateFormat
+    parseWebDate date = parseTimeM True defaultTimeLocale rfc822DateFormat
                         (ltrim date) :: Maybe UTCTime
     parseInt t s = case reads (dropWhile (not . isDigit) s) :: [(Integer, String)] of
         [(v, _)] -> Just (t v)
